@@ -14,16 +14,23 @@ let package = Package(
             name: "PenguinCSV",
             targets: ["PenguinCSV"]),
         .library(
+            name: "PenguinGraphs",
+            targets: ["PenguinGraphs"]),
+        .library(
+            name: "PenguinPipeline",
+            targets: ["PenguinPipeline"]),
+        .library(
             name: "PenguinParallel",
             targets: ["PenguinParallel"]),
-        .executable(
-            name: "Foo",
-            targets: ["Foo"]),
+        .library(
+            name: "PenguinStructures",
+            targets: ["PenguinStructures"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
         // .package(url: "https://github.com/tensorflow/swift-apis.git", .branch("master")),
+        .package(url: "https://github.com/google/swift-benchmark.git", .branch("master")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -41,13 +48,42 @@ let package = Package(
             name: "PenguinCSVTests",
             dependencies: ["PenguinCSV"]),
         .target(
-            name: "PenguinParallel",
-            dependencies: []),
+            name: "PenguinGraphs",
+            dependencies: ["PenguinParallel", "PenguinStructures"]),
         .testTarget(
-            name: "PenguinParallelTests",
+            name: "PenguinGraphTests",
+            dependencies: ["PenguinGraphs", "PenguinParallelWithFoundation"]),
+        .target(
+            name: "PenguinPipeline",
+            dependencies: ["PenguinParallel"]),
+        .testTarget(
+            name: "PenguinPipelineTests",
+            dependencies: ["PenguinPipeline"]),
+        .target(
+            name: "PenguinParallelWithFoundation",
             dependencies: ["PenguinParallel"]),
         .target(
-            name: "Foo",
-            dependencies: ["PenguinParallel", "PenguinCSV", "Penguin"]),
+            name: "PenguinParallel",
+            dependencies: ["PenguinStructures", "CPenguinParallel"]),
+        .testTarget(
+            name: "PenguinParallelTests",
+            dependencies: ["PenguinParallel", "PenguinParallelWithFoundation"]),
+        .target(
+            name: "CPenguinParallel",
+            dependencies: [],
+            cSettings: [.define("SWIFT_OPT", .when(configuration: .release))]),
+        .target(
+            name: "PenguinStructures",
+            dependencies: []),
+        .testTarget(
+            name: "PenguinStructuresTests",
+            dependencies: ["PenguinStructures"]),
+        .target(
+            name: "Benchmarks",
+            dependencies: [
+                "Benchmark",
+                "PenguinParallelWithFoundation",
+                "PenguinGraphs",
+            ]),
     ]
 )

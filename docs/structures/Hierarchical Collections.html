@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hierarchical Collections  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Section/Hierarchical Collections" class="dashAnchor"></a>
+
+    <a title="Hierarchical Collections  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          PenguinStructures Docs
+        </a>
+         (91% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/saeta/penguin">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">PenguinStructures Reference</a>
+      <img class="carat" src="img/carat.png" />
+      Hierarchical Collections  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Hierarchical%20Collections.html">Hierarchical Collections</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/MutableHierarchicalCollection.html">MutableHierarchicalCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Deque.html">Deque</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Deque/Cursor.html">– Cursor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/DoubleEndedBuffer.html">DoubleEndedBuffer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Enums/DoubleEndedAllocationPolicy.html">DoubleEndedAllocationPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/HierarchicalArray.html">HierarchicalArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/HierarchicalArray/Cursor.html">– Cursor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/LeafArray.html">LeafArray</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other%20Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/AnyArrayStorage.html">AnyArrayStorage</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ArrayStorage.html">ArrayStorage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other%20Extensions.html">Other Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:Sa">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/ArrayPriorityQueueIndexer.html">ArrayPriorityQueueIndexer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/BinaryInteger.html">BinaryInteger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/Collection.html">Collection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:SD">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:Si">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:s5Int32V">Int32</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:s5Int64V">Int64</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/RandomAccessCollection.html">RandomAccessCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:s6UInt32V">UInt32</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Extensions.html#/s:s6UInt64V">UInt64</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other%20Protocols.html">Other Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/AnyArrayStorageImplementation.html">AnyArrayStorageImplementation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/ArrayStorageImplementation.html">ArrayStorageImplementation</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/DefaultInitializable.html">DefaultInitializable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/FixedSizeArray.html">FixedSizeArray</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/IdIndexable.html">IdIndexable</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/IndexProtocol.html">IndexProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/PriorityQueueIndexer.html">PriorityQueueIndexer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/Queue.html">Queue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/TupleProtocol.html">TupleProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other%20Structs.html">Other Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Array0.html">Array0</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ArrayBuffer.html">ArrayBuffer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ArrayN.html">ArrayN</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/CollectionPriorityQueueIndexer.html">CollectionPriorityQueueIndexer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Empty.html">Empty</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/GenericPriorityQueue.html">GenericPriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/NonIndexingPriorityQueueIndexer.html">NonIndexingPriorityQueueIndexer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/PriorityQueueElement.html">PriorityQueueElement</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/Tuple.html">Tuple</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Other%20Typealiases.html">Other Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array1a">Array1</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array2a">Array2</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array3a">Array3</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array4a">Array4</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array5a">Array5</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array6a">Array6</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Array7a">Array7</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures25ArrayPriorityQueueIndexera">ArrayPriorityQueueIndexer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures13PriorityQueuea">PriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures28ReprioritizablePriorityQueuea">ReprioritizablePriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures19SimplePriorityQueuea">SimplePriorityQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple0a">Tuple0</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple1a">Tuple1</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple2a">Tuple2</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple3a">Tuple3</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple4a">Tuple4</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple5a">Tuple5</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple6a">Tuple6</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Other%20Typealiases.html#/s:17PenguinStructures6Tuple7a">Tuple7</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>Hierarchical Collections</h1>
+            
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures22HierarchicalCollectionP"></a>
+                    <a name="//apple_ref/swift/Protocol/HierarchicalCollection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures22HierarchicalCollectionP">HierarchicalCollection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a hierarchical collection of data.</p>
+
+<p>Many efficient data structures naturally contain some hierarchy. Examples include B-trees,
+adjacency lists in graphs, and elements within a hash table (if using bucket chaining). By
+explicitly encoding the hierarchical nature of a collection into the the static type, more
+efficient algorithms are possible to express.</p>
+
+<p>For additional details, please see:</p>
+
+<ul>
+<li>&ldquo;Segmented Iterators and Hierarchical Algorithms&rdquo;, Matthew H. Austern, 2000.</li>
+<li>&ldquo;Hierarchical Data Structures and Related Concepts for the C++ Standard Library&rdquo;, Reiter &amp;
+Rivera, 2013.</li>
+</ul>
+
+<p>Note: due to limitations in Swift&rsquo;s type system, a single type cannot be both a
+<code>HierarchicalCollection</code> and a <code>Collection</code>.</p>
+
+<p>When conforming to <code>HierarchicalCollection</code>, only <code>forEachWhile</code> and <code>count</code> are required.</p>
+
+                        <a href="Protocols/HierarchicalCollection.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">HierarchicalCollection</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/HierarchicalCollection.swift#L31-L85">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures29MutableHierarchicalCollectionP"></a>
+                    <a name="//apple_ref/swift/Protocol/MutableHierarchicalCollection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures29MutableHierarchicalCollectionP">MutableHierarchicalCollection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>MutableHierarchicalCollection extends <code><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></code>s to allow mutation of contents.</p>
+
+<p>While many algorithms simply query the data structure in order to do their work, some algorithms
+modify the data structure. This protocol abstracts over a set of common mutation operations of
+hierarchical data structures.</p>
+
+                        <a href="Protocols/MutableHierarchicalCollection.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MutableHierarchicalCollection</span> <span class="p">:</span> <span class="kt"><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/HierarchicalCollection.swift#L92-L101">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Deques"></a>
+                <a name="//apple_ref/swift/Section/Deques" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Deques"></a>
+                  <h3 class="section-name"><p>Deques</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures5DequeV"></a>
+                    <a name="//apple_ref/swift/Struct/Deque" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures5DequeV">Deque</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A dynamically-sized double-ended queue that allows pushing and popping at both the front and the
+back.</p>
+
+                        <a href="Structs/Deque.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Deque</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Deque</span><span class="p">:</span> <span class="kt"><a href="Protocols/Queue.html">Queue</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Deque</span><span class="p">:</span> <span class="kt"><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/Deque.swift#L35-L143">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures17DoubleEndedBufferV"></a>
+                    <a name="//apple_ref/swift/Struct/DoubleEndedBuffer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures17DoubleEndedBufferV">DoubleEndedBuffer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A fixed-size, contiguous collection allowing additions and removals at either end (space
+permitting).</p>
+
+<p>Beware: unbalanced pushes/pops to either the front or the back will result in the effective
+working size to be diminished. If you would like this to be managed for you automatically,
+please use a <code><a href="Structs/Deque.html">Deque</a></code>.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="Structs/Deque.html">Deque</a></code>
+
+</div>
+
+                        <a href="Structs/DoubleEndedBuffer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DoubleEndedBuffer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">DoubleEndedBuffer</span><span class="p">:</span> <span class="kt">Collection</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/Deque.swift#L216-L372">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures27DoubleEndedAllocationPolicyO"></a>
+                    <a name="//apple_ref/swift/Enum/DoubleEndedAllocationPolicy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures27DoubleEndedAllocationPolicyO">DoubleEndedAllocationPolicy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes where the initial insertions into a buffer should go.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <code><a href="Structs/DoubleEndedBuffer.html">DoubleEndedBuffer</a></code>
+
+</div>
+
+                        <a href="Enums/DoubleEndedAllocationPolicy.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">DoubleEndedAllocationPolicy</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/Deque.swift#L404-L411">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Hierarchical%20Arrays"></a>
+                <a name="//apple_ref/swift/Section/Hierarchical Arrays" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Hierarchical%20Arrays"></a>
+                  <h3 class="section-name"><p>Hierarchical Arrays</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures17HierarchicalArrayV"></a>
+                    <a name="//apple_ref/swift/Struct/HierarchicalArray" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures17HierarchicalArrayV">HierarchicalArray</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A hierarchical collection composed of <code>T</code> hierarchical collections.</p>
+
+                        <a href="Structs/HierarchicalArray.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HierarchicalArray</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/HierarchicalArrays.swift#L18-L84">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17PenguinStructures9LeafArrayV"></a>
+                    <a name="//apple_ref/swift/Struct/LeafArray" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17PenguinStructures9LeafArrayV">LeafArray</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>LeafArray wraps an <code>Array</code> to form a <code><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></code>.</p>
+
+<p>LeafArray is a &ldquo;bottom&rdquo; type within a HierarchicalCollection.</p>
+
+                        <a href="Structs/LeafArray.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LeafArray</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/HierarchicalCollection.html">HierarchicalCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/saeta/penguin/tree/master/Sources/PenguinStructures/HierarchicalArrays.swift#L89-L136">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://github.com/saeta" target="_blank" rel="external">Brennan Saeta <a href="mailto:saeta@google.com">saeta@google.com</a></a>. All rights reserved. (Last updated: 2020-05-31)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

@@ -12,14 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import XCTest
-
-import PenguinTests
 import PenguinCSVTests
+import PenguinGraphTests
 import PenguinParallelTests
+import PenguinPipelineTests
+import PenguinStructuresTests
+import PenguinTests
+import XCTest
 
 var tests = [XCTestCaseEntry]()
 tests += PenguinTests.allTests()
 tests += PenguinCSVTests.allTests()
+tests += PenguinGraphTests.allTests()
 tests += PenguinParallelTests.allTests()
+tests += PenguinPipelineTests.allTests()
+tests += PenguinStructuresTests.allTests()
 XCTMain(tests)
