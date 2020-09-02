@@ -19,18 +19,26 @@ import XCTest
     return [
       // Please maintain this list in alphabetical order.
       testCase(AnyArrayBufferTests.allTests),
+      testCase(AnyValueTests.allTests),
       testCase(ArrayBufferTests.allTests),
       testCase(ArrayStorageExtensionTests.allTests),
       testCase(ArrayStorageTests.allTests),
+      testCase(CollectionAlgorithmTests.allTests),
+      testCase(ConcatenationTests.allTests),
       testCase(DequeTests.allTests),
       testCase(DoubleEndedBufferTests.allTests),
+      testCase(EitherCollectionTests.allTests),
+      testCase(EitherTests.allTests),
       testCase(FactoryInitializableTests.allTests),
       testCase(FixedSizeArrayTests.allTests),
       testCase(HeapTests.allTests),
       testCase(HierarchicalCollectionTests.allTests),
+      testCase(NominalElementDictionaryTests.allTests),
       testCase(PCGRandomNumberGeneratorTests.allTests),
       testCase(RandomTests.allTests),
       testCase(TupleTests.allTests),
+      testCase(TypeIDTests.allTests),
+      testCase(UnsignedInteger_ReducedTests.allTests),
     ]
   }
 #endif

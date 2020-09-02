@@ -13,10 +13,16 @@
 // limitations under the License.
 
 import Benchmark
+import PenguinStructures
 
-Benchmark.main([
-  nonBlockingCondition,
-  nonBlockingThreadPool,
-  adjacencyList,
-  parallelExpander,
-])
+Benchmark.main(
+  [
+    AnyValue.benchmarks,
+    NaiveAnyBased_AnyValue.benchmarks,
+    ClassBoxBased_AnyValue.benchmarks,
+    arrayStorage,
+    nonBlockingCondition,
+    nonBlockingThreadPool,
+    adjacencyList,
+    parallelExpander,
+  ])

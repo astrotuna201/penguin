@@ -31,11 +31,14 @@ import PenguinStructures
 ///
 /// - SeeAlso: `ExternalPropertyMap`
 public protocol PropertyMap {
+  /// The graph this property map holds properties for.
   associatedtype Graph: GraphProtocol
+  /// The key used to look up values in this property map.
   associatedtype Key
+  /// The data stored in the property map.
   associatedtype Value
 
-  /// Get the `Value` associated with `key` in `graph`.
+  /// Returns the `Value` associated with `key` in `graph`.
   func get(_ key: Key, in graph: Graph) -> Value
 
   // TODO: Consider splitting set out into a refinement protocol?
@@ -44,14 +47,19 @@ public protocol PropertyMap {
   mutating func set(_ key: Key, in graph: inout Graph, to newValue: Value)
 }
 
+/// A `ParallelCapablePropertyMap` is one that can be used with `ParallelGraph`s in vertex-parallel
+/// algorithms.
 public protocol ParallelCapablePropertyMap: PropertyMap where Graph: ParallelGraph {
+  /// Returns the `Value` associated with `key` in a parallel `graph`.
   func get(_ key: Key, in graph: Graph.ParallelProjection) -> Value
 
+  /// Updates the `Value` associated with `key` in the parallel `graph`.
   mutating func set(_ key: Key, in graph: inout Graph.ParallelProjection, to newValue: Value)
 }
 
 /// External property maps store data outside the graph.
 public protocol ExternalPropertyMap: PropertyMap {
+  /// Accesses the `Value` for a given `Key`.
   subscript(key: Key) -> Value { get set }
 }
 
@@ -176,6 +184,12 @@ extension InternalEdgePropertyMap: ParallelCapablePropertyMap where Graph: Paral
   }
 }
 
+/// Transforms an existing property map (`Underlying`) to project out a single underlying field from
+/// its `Value`.
+///
+/// Beware: this results in extra copies when mutating the underlying values.
+///
+/// - SeeAlso: `PropertyMap.transform`.
 public struct TransformingPropertyMap<NewValue, Underlying: PropertyMap>: PropertyMap {
   let keyPath: WritableKeyPath<Underlying.Value, NewValue>
   var underlying: Underlying
@@ -206,6 +220,7 @@ extension TransformingPropertyMap: ParallelCapablePropertyMap where Underlying: 
 }
 
 extension PropertyMap {
+  /// Returns a new property map based on `Self` that accesses `keyPath` from `Value`.
   public func transform<NewValue>(_ keyPath: WritableKeyPath<Value, NewValue>) -> TransformingPropertyMap<NewValue, Self> {
     TransformingPropertyMap(keyPath: keyPath, underlying: self)
   }
@@ -273,13 +288,17 @@ where Key: Hashable {
   /// The mapping of edges to values.
   var values: [Key: Value]
 
+  /// The default value for elements not in `values`.
+  let defaultValue: Value?
+
   /// Initialize `self` providing `values` for each edge.
-  public init(_ values: [Key: Value]) {
+  public init(_ values: [Key: Value], defaultValue: Value? = nil) {
     self.values = values
+    self.defaultValue = defaultValue
   }
 
   public subscript(key: Key) -> Value {
-    get { values[key]! }
+    get { values[key] ?? defaultValue! }
     set { values[key] = newValue }
   }
 }
@@ -291,4 +310,30 @@ extension DictionaryPropertyMap where Graph.EdgeId: Hashable, Key == Graph.EdgeI
   }
 }
 
+extension DictionaryPropertyMap where Graph.VertexId: Hashable, Key == Graph.VertexId {
+  /// Initializes `self` using `values`; `graph` is unused, but helps type inference along.
+  public init(_ values: [Graph.VertexId: Value], forVerticesIn graph: __shared Graph) {
+    self.init(values)
+  }
+
+  /// Initializes `self` where every vertex has `value`; `graph` is used for type inference.
+  public init(repeating value: Value, forVerticesIn graph: __shared Graph) {
+    self.init([:], defaultValue: value)
+  }
+}
+
 extension DictionaryPropertyMap: ParallelCapablePropertyMap where Graph: ParallelGraph {}
+
+/// A read-only property map whose values are computed by a closure.
+public struct ClosurePropertyMap<Graph: GraphProtocol, Key, Value>: ExternalPropertyMap {
+  let propertyProducer: (Key) -> Value
+
+  public init(propertyProducer: @escaping (Key) -> Value) {
+    self.propertyProducer = propertyProducer
+  }
+
+  public subscript(key: Key) -> Value {
+    get { propertyProducer(key) }
+    set { fatalError("ClosurePropertyMap is read-only.") }
+  }
+}

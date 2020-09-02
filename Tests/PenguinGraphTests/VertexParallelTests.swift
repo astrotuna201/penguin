@@ -62,13 +62,13 @@ final class VertexParallelTests: XCTestCase {
 
   func testSequentialMessagePropagation() {
     var g = makeSimpleReachabilityGraph()
-    var mailboxes = SequentialMailboxes(for: g, sending: SimpleMessage.self)
+    var mailboxes = SequentialMailboxes(for: g, sending: Type<SimpleMessage>())
     runReachabilityTest(&g, &mailboxes)
   }
 
   func testTransitiveClosureSequentialMerging() {
     var g = makeSimpleReachabilityGraph()
-    var mailboxes = SequentialMailboxes(for: g, sending: Empty.self)
+    var mailboxes = SequentialMailboxes(for: g, sending: Type<Empty>())
     XCTAssertEqual(3, g.parallelTransitiveClosure(using: &mailboxes))
     let vIds = g.vertices
     XCTAssert(g[vertex: vIds[0]].isReachable)
@@ -82,7 +82,7 @@ final class VertexParallelTests: XCTestCase {
     var g = makeDistanceGraph()
     var mailboxes = SequentialMailboxes(
       for: g,
-      sending: DistanceSearchMessage<DistanceGraph.VertexId, Int>.self)
+      sending: Type<DistanceSearchMessage<DistanceGraph.VertexId, Int>>())
     let vIds = g.vertices
 
     XCTAssertEqual(4, g.computeBFS(startingAt: vIds[0], using: &mailboxes))
@@ -112,13 +112,17 @@ final class VertexParallelTests: XCTestCase {
     var g = makeDistanceGraph()
     var mailboxes = SequentialMailboxes(
       for: g,
-      sending: DistanceSearchMessage<DistanceGraph.VertexId, Int>.self)
+      sending: Type<DistanceSearchMessage<DistanceGraph.VertexId, Int>>())
     let vIds = g.vertices
 
     let edgeDistanceMap = InternalEdgePropertyMap(for: g).transform(\.distance)
     XCTAssertEqual(
       6,
-      g.computeShortestPaths(startingAt: vIds[0], distances: edgeDistanceMap, mailboxes: &mailboxes)
+      g.computeShortestPaths(
+        startingAt: vIds[0],
+        distances: edgeDistanceMap,
+        effectivelyInfinite: Int.max,
+        mailboxes: &mailboxes)
     )
 
     //  -> v0 -> v1 -> v2    v6 (disconnected)
@@ -147,7 +151,7 @@ final class VertexParallelTests: XCTestCase {
 
     var mailboxes = SequentialMailboxes(
       for: g,
-      sending: DistanceSearchMessage<DistanceGraph.VertexId, Int>.self)
+      sending: Type<DistanceSearchMessage<DistanceGraph.VertexId, Int>>())
     let vIds = g.vertices
 
     let edgeDistanceMap = InternalEdgePropertyMap(for: g).transform(\.distance)
@@ -156,6 +160,7 @@ final class VertexParallelTests: XCTestCase {
       g.computeShortestPaths(
         startingAt: vIds[0],
         distances: edgeDistanceMap,
+        effectivelyInfinite: Int.max,
         mailboxes: &mailboxes,
         maximumSteps: 3))
 
@@ -185,7 +190,7 @@ final class VertexParallelTests: XCTestCase {
 
     var mailboxes = SequentialMailboxes(
       for: g,
-      sending: DistanceSearchMessage<DistanceGraph.VertexId, Int>.self)
+      sending: Type<DistanceSearchMessage<DistanceGraph.VertexId, Int>>())
     let vIds = g.vertices
 
     let edgeDistanceMap = InternalEdgePropertyMap(for: g).transform(\.distance)
@@ -195,6 +200,7 @@ final class VertexParallelTests: XCTestCase {
         startingAt: vIds[0],
         stoppingAt: vIds[3],
         distances: edgeDistanceMap,
+        effectivelyInfinite: Int.max,
         mailboxes: &mailboxes))
 
     //  -> v0 -> v1 -> v2    v6 (disconnected)
@@ -234,7 +240,7 @@ final class VertexParallelTests: XCTestCase {
     let g = makeDistanceGraph()
     let vIds = g.vertices
     ComputeThreadPools.withPool(testPool) {
-      let mailboxes = PerThreadMailboxes(for: g, sending: TestMessage.self)
+      let mailboxes = PerThreadMailboxes(for: g, sending: Type<TestMessage>())
 
       XCTAssertFalse(mailboxes.deliver())
       XCTAssertFalse(mailboxes.deliver())
@@ -279,13 +285,16 @@ final class VertexParallelTests: XCTestCase {
       let vIds = g.vertices
       var mailboxes = PerThreadMailboxes(
         for: g,
-        sending: DistanceSearchMessage<DistanceGraph.VertexId, Int>.self)
+        sending: Type<DistanceSearchMessage<DistanceGraph.VertexId, Int>>())
 
       let edgeDistanceMap = InternalEdgePropertyMap(for: g).transform(\.distance)
       XCTAssertEqual(
         6,
         g.computeShortestPaths(
-          startingAt: vIds[0], distances: edgeDistanceMap, mailboxes: &mailboxes))
+          startingAt: vIds[0],
+          distances: edgeDistanceMap,
+          effectivelyInfinite: Int.max,
+          mailboxes: &mailboxes))
 
       //  -> v0 -> v1 -> v2    v6 (disconnected)
       // |    '--> v3 <--'
@@ -461,14 +470,17 @@ extension VertexParallelTests {
       var g = makeDistanceGraph()
       var mailboxes = PerThreadMailboxes(
         for: g,
-        sending: DistanceSearchMessage<DistanceGraph.VertexId, Int>.self)
+        sending: Type<DistanceSearchMessage<DistanceGraph.VertexId, Int>>())
 
       let vIds = g.vertices
       let edgeDistanceMap = InternalEdgePropertyMap(for: g).transform(\.distance)
       XCTAssertEqual(
         6,
         g.computeShortestPaths(
-          startingAt: vIds[0], distances: edgeDistanceMap, mailboxes: &mailboxes))
+          startingAt: vIds[0],
+          distances: edgeDistanceMap,
+          effectivelyInfinite: Int.max,
+          mailboxes: &mailboxes))
 
       //  -> v0 -> v1 -> v2    v6 (disconnected)
       // |    '--> v3 <--'

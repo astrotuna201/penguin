@@ -8,8 +8,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
-            name: "Penguin",
-            targets: ["Penguin"]),
+            name: "PenguinTables",
+            targets: ["PenguinTables"]),
         .library(
             name: "PenguinCSV",
             targets: ["PenguinCSV"]),
@@ -17,30 +17,31 @@ let package = Package(
             name: "PenguinGraphs",
             targets: ["PenguinGraphs"]),
         .library(
-            name: "PenguinPipeline",
-            targets: ["PenguinPipeline"]),
-        .library(
             name: "PenguinParallel",
             targets: ["PenguinParallel"]),
         .library(
+            name: "PenguinParallelWithFoundation",
+            targets: ["PenguinParallelWithFoundation"]),
+        .library(
             name: "PenguinStructures",
             targets: ["PenguinStructures"]),
+        .library(
+            name: "PenguinTesting",
+            targets: ["PenguinTesting"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-        // .package(url: "https://github.com/tensorflow/swift-apis.git", .branch("master")),
         .package(url: "https://github.com/google/swift-benchmark.git", .branch("master")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "Penguin",
+            name: "PenguinTables",
             dependencies: ["PenguinCSV", "PenguinParallel"]),
         .testTarget(
-            name: "PenguinTests",
-            dependencies: ["Penguin"]),
+            name: "PenguinTablesTests",
+            dependencies: ["PenguinTables"]),
         .target(
             name: "PenguinCSV",
             dependencies: []),
@@ -77,7 +78,10 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "PenguinStructuresTests",
-            dependencies: ["PenguinStructures"]),
+            dependencies: ["PenguinStructures", "PenguinTesting"]),
+        .target(
+            name: "PenguinTesting",
+            dependencies: []),
         .target(
             name: "Benchmarks",
             dependencies: [
