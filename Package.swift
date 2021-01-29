@@ -31,7 +31,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/google/swift-benchmark.git", .branch("master")),
+        .package(url: "https://github.com/google/swift-benchmark.git", from: "0.1.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -83,7 +83,7 @@ let package = Package(
             name: "PenguinTesting",
             dependencies: []),
         .target(
-            name: "Benchmarks",
+            name: "PenguinBenchmarks",
             dependencies: [
                 "Benchmark",
                 "PenguinParallelWithFoundation",
